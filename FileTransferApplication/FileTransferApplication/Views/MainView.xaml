@@ -1,0 +1,28 @@
+﻿<Window x:Class="FileTransferApplication.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileTransferApplication.Views"
+        mc:Ignorable="d"
+         Title="MainWindow" Height="200" Width="600" FontFamily="Bahnschrift" FontSize="22">
+    <StackPanel>
+        <StackPanel HorizontalAlignment="Center" Height="50" Orientation="Horizontal">
+            <Label Margin="20,0,0,0" VerticalAlignment="Center" Width="65" >From</Label>
+            <TextBox VerticalContentAlignment="Center" FontSize="14" Text="{Binding SourceFilePath}" HorizontalAlignment="Center" Width="200" Height="35" Margin="30,0,0,0"></TextBox>
+            <Button Height="35" Width="65" Margin="20,0,20,0" Command="{Binding OpenSourceFileCommand}">File...</Button>
+        </StackPanel >
+        <StackPanel HorizontalAlignment="Center" Height="50" Orientation="Horizontal">
+            <Label Width="65" Margin="20,0,0,0" VerticalAlignment="Center" >To</Label>
+            <TextBox VerticalContentAlignment="Center" FontSize="14" Text="{Binding DestinationFilePath}" HorizontalAlignment="Center" Width="200" Height="35" Margin="30,0,0,0"></TextBox>
+            <Button Height="35" Width="65" Margin="20,0,20,0" Command="{Binding OpenDestinationFileCommand}">File...</Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Height="50" Orientation="Horizontal">
+            <ProgressBar Value="{Binding ProgressBarValue}" Minimum="0" Maximum="{Binding ProgressBarMaxValue}" Margin="20,0,0,0" Width="200" Height="35"></ProgressBar>
+            <Button Height="35" Width="65" Margin="25,0,0,0" FontSize="14" Command="{Binding SuspendCommand}">Suspend</Button>
+            <Button Height="35" Width="65" Margin="10,0,0,0" FontSize="14" Command="{Binding ResumeCommand}">Resume</Button>
+            <Button Height="35" Width="65" Margin="10,0,0,0" FontSize="14" Command="{Binding AbortCommand}">Abort</Button>
+            <Button Height="35" Width="65" Margin="10,0,20,0" FontSize="14" Command="{Binding TransferCommand}">Copy</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
